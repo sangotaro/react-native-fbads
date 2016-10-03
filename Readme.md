@@ -7,8 +7,13 @@ react-native-fbads [![npm version](https://badge.fury.io/js/react-native-fbads.s
 
 Features:
 - [X] Native Ads
+<<<<<<< HEAD
 - [X] Interstitial Ads (iOS only)
 - [ ] Banner Ads
+=======
+- [ ] Interstitial Ads
+- [X] Banner Ads (Android only)
+>>>>>>> Added example in Read.me
 
 ## Table of Contents
 
@@ -190,7 +195,7 @@ InterstitialAdManager is a manager that allows you to display interstitial ads w
 #### showAd
 
 Loads an interstitial ad asynchronously and shows it full screen by attaching a view onto the current root view
-controller. 
+controller.
 
 ```js
 InterstitialAdManager.showAd('placementId')
@@ -198,10 +203,43 @@ InterstitialAdManager.showAd('placementId')
   .catch(...);
 ```
 
-Promise will be rejected when there's an error loading ads from Facebook Audience network. It will resolve with a 
+Promise will be rejected when there's an error loading ads from Facebook Audience network. It will resolve with a
 `boolean` indicating whether user didClick an ad or not.
 
 **Note:** There can be only one `showAd` call being performed at a time. Otherwise, an error will be thrown.
+
+### BannerView
+BannerView is a component that allows you to display native banners (know as *AdView*). Banners are available in 3 sizes:
+- BANNER_HEIGHT_50
+- BANNER_HEIGHT_90
+- RECTANGLE_HEIGHT_250
+
+```js
+import { View, StyleSheet } from 'react-native';
+import { BannerView } from 'react-native-fbads';
+
+function ViewWithBanner(props) {
+  return (
+    <View>
+      <BannerView
+        placementId="YOUR_BANNER_PLACEMENT_ID"
+        size={
+          BannerView.BANNER_HEIGHT_50 |
+          BannerView.BANNER_HEIGHT_90 |
+          BannerView.RECTANGLE_HEIGHT_250
+        }
+        style={styles.banner}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  banner: {
+    alignSelf: 'stretch',
+    height: 50 | 90 | 250,
+  },
+});
+```
 
 ### AdSettings
 
@@ -234,7 +272,7 @@ AdSettings.clearTestDevices();
 
 #### setLogLevel
 
-Sets current SDK log level. 
+Sets current SDK log level.
 
 ```js
 AdSettings.setLogLevel('none' | 'debug' | 'verbose' | 'warning' | 'error' | 'notification');
