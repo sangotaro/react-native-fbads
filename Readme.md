@@ -7,13 +7,8 @@ react-native-fbads [![npm version](https://badge.fury.io/js/react-native-fbads.s
 
 Features:
 - [X] Native Ads
-<<<<<<< HEAD
 - [X] Interstitial Ads (iOS only)
-- [ ] Banner Ads
-=======
-- [ ] Interstitial Ads
 - [X] Banner Ads (Android only)
->>>>>>> Added example in Read.me
 
 ## Table of Contents
 
